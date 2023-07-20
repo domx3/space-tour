@@ -2,6 +2,7 @@ import { MathUtils, Scene, Group,
   AmbientLight, Raycaster, PerspectiveCamera  } from 'three';
 import { gsap } from 'gsap';
 import loadScene from './SceneLoader.js';
+import { openFullscreen } from './Utils.js';
 
 const sizes = {
   width: window.innerWidth,
@@ -211,6 +212,7 @@ class SceneManager {
   removeStartScreen() {
     if(this.startScreen && !this.loading) {
       document.querySelector('.startScreen').remove();
+      //openFullscreen();
       //document.querySelector('.startScreen').style = 'z-index: -1;'
       this.startScreen = false;
       this.goToSection(0);

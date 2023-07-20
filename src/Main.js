@@ -1,17 +1,18 @@
 import * as THREE from 'three';
 import SceneManager from "./SceneManager.js";
 import TextBox from "./TextBox.js";
-import { resizeRendererToDisplaySize } from './Utils.js';
+import { closeFullscreen, openFullscreen, resizeRendererToDisplaySize } from './Utils.js';
 import ButtonManager from './ButtonManager.js';
 
 // set background
-const body = document.querySelector('body');
+const body = document.querySelector('#main-canvas');
 body.style.backgroundImage = 'url("background/2k_stars.jpg")';
 
 // variables
 let startX = 0;
 let distX = 0;
 let previousTime = 0;
+let fullScreen = false;
 const sizes = {
   width: window.innerWidth,
   height: window.innerHeight
@@ -39,9 +40,13 @@ renderer.setPixelRatio(window.devicePixelRatio);
 
 
 // return to earth button
-const returnButton = document.getElementById( 'returnButton' );
-returnButton.addEventListener( 'click', function ( event ) {
-  sm.returnToEarth();
+const earthButton = document.getElementById( 'earthButton' );
+earthButton.addEventListener( 'click', function ( event ) {
+  if(buttonManager.getEarthState()) {
+    sm.returnToEarth();
+  } else {
+    sm.setNightMode();
+  }
 }, false );
 
 // left arrow button
@@ -57,11 +62,6 @@ rightArrow.addEventListener( 'click', function ( event ) {
   sm.moveRightSection();
 }, false );
 
-// night mode button
-const nightModeBtn = document.getElementById("nightMode");
-nightModeBtn.addEventListener('click', (event) => {
-  sm.setNightMode()
-})
 
 // remove start screen
 document.addEventListener('keydown', function(event) {
@@ -215,6 +215,22 @@ function onTouchMove(event) {
   prevMouseY = currentMouseY;
 }
 
+
+//full screen
+const fullScreenButton = document.getElementById('fullScreenBtn');
+const fullScreenImg = document.getElementById('fsImg');
+fullScreenButton.addEventListener('click', () => {
+  if(!fullScreen) {
+    openFullscreen();
+    fullScreen = true;
+    fullScreenImg.src = 'icons/min-screen.svg'
+  }
+  else {
+    closeFullscreen();
+    fullScreen = false;
+    fullScreenImg.src = 'icons/full-screen.svg'
+  }
+})
 
 /*                                    render                                                */
 
