@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="icons/planet-earth-icon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Orbitron&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Tour</title>
+    
+    <script type="module" crossorigin src="/space-tour/assets/index-49c10f24.js"></script>
+    <link rel="stylesheet" href="/space-tour/assets/index-02351123.css">
+  </head>
+  <body>
+  <div class="main-container">
+    <nav class="navbar orbitron">
+      <a href="/space-tour" class="navbar-brand">SPACE TOUR</a>
+      <div class="navbar-buttons">
+        <button class="navbar-button" id="infoBtn" title="Info">
+          <img src="icons/info-icon.svg" alt="about" class="btn-icon"/>
+        </button>
+        <button class="navbar-button" id="fullScreenBtn" title="Full screen">
+          <img src="icons/full-screen.svg" alt="full screen" class="btn-icon" id="fsImg"/>
+        </button>
+      </div>
+    </nav>
+    
+    <div class="overlay startScreen orbitron">
+      <div class="startText desktop-start ">
+        <p class="typed  ad-25" id="welcomeText">Welcome to Space Tour!</p>
+        <p class="typed d11 ad-25">Embark on a captivating journey through the celestial wonders</p>
+        <p class="typed d12 ad-25">of our planetary neighborhood. Discover the mesmerizing beauty,</p>
+        <p class="typed d13 ad-25"> intriguing facts, and awe-inspiring features of each planet.</p>  
+      </div>
+      <div class="startText mobile-start ">
+        <p class="typed " id="welcomeText">Welcome to Space Tour!</p>
+        <p class="typed d21 ad-15">Embark on a captivating journey through</p>
+        <p class="typed d22 ad-15">the celestial wonders of our planetary </p>
+        <p class="typed d23 ad-15">neighborhood. Discover the mesmerizing </p>
+        <p class="typed d24 ad-15">beauty, intriguing facts, and awe-inspiring</p>
+        <p class="typed d25 ad-15">features of each planet.</p>  
+      </div>
+      <div id="loader">
+        <img src="icons/loading-gif.gif" alt="loading" class="btn-loading"/>
+      </div>
+      <div id="anyKey">
+        <p class="blink" >
+        <span id="anyKeyMobile">Touch to continue...</span>
+        <span id="anyKeyDesktop">Press any key to continue...</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="esc">
+        <img src="icons/cross.svg" alt="about" class="btn-icon"/>
+      </div>
+      <div class="info-text">
+        <h3 class="orbitron">INSTRUCTIONS</h3>
+        
+        <p>To navigate the scene in this application, you have multiple options at your disposal. </p>
+          
+          <p class="info-list">Use the mouse wheel for smooth movement.</p>
+          <p class="info-list">Press left and right arrows at the bottom or on keyboard.</p>
+          <p class="info-list">On touch devices, swipe left or right (swiping on the planet - rotation).</p>
+       
+        <h3 class="orbitron">CREDITS</h3>
+        <p>Created with: vanilla JS + Three.js</p>
+        <p>Text: ChatGPT</p>
+        <p>Planet textures: NASA ( https://www.solarsystemscope.com/textures/ )</p>
+        <p>Icons: ( https://www.svgrepo.com/ )</p>
+      </div>
+
+    </div>
+    
+    <div class="element" id="textBox" draggable="false">
+        <div class="symbol">
+          <h2 id="planetName" class="orbitron">Planet</h2>
+        </div>
+        <div class="facts">
+          <p id="fact1">fact1</p>
+          <p id="fact2">fact2</p>
+          <p id="fact3">fact3</p>
+        </div>
+    </div>
+  
+    <div class="orbitron" id="bottom">
+      
+      <button class="arrow-btn" id="left-arrow">
+        <img class="btn-icon" src="icons/left-arrow.svg" alt="towards sun"></img>
+      </button>
+      <button id="earthButton">
+        <img class="btn-icon" id="earthImg" src="icons/night-mode-icon.svg" alt="earth" title="Earth"></img>
+      </button>
+      <button class="arrow-btn" id="right-arrow">
+        <img class="btn-icon" src="icons/right-arrow.svg" alt="from sun"></img>
+      </button>
+
+    </div>
+
+    <canvas id="main-canvas"></canvas>
+  </div>
+    
+  </body>
+</html>
